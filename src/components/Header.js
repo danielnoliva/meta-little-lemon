@@ -5,7 +5,7 @@ import Nav from "./Nav";
 export default function Header() {
   return (
     <header className="App-header">
-      <nav>
+      <nav className="main-nav" aria-label="Primary">
         <img src={logo} className="App-logo" alt="Little Lemon Logo" />
         <Nav />
       </nav>

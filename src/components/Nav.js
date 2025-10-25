@@ -1,6 +1,10 @@
-export default function Nav() {
+export default function Nav({ className = "" }) {
+  const listClassName = className
+    ? `nav-links ${className}`.trim()
+    : "nav-links";
+
   return (
-    <ul>
+    <ul className={listClassName}>
       <li>
         <a href="#home">Home</a>
       </li>

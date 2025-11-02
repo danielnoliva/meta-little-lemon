@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Nav({ className = "" }) {
   const listClassName = className
     ? `nav-links ${className}`.trim()
@@ -6,22 +8,22 @@ export default function Nav({ className = "" }) {
   return (
     <ul className={listClassName}>
       <li>
-        <a href="#home">Home</a>
+        <Link to="/">Home</Link>
       </li>
       <li>
-        <a href="#about">About</a>
+        <Link to="/#about">About</Link>
       </li>
       <li>
-        <a href="#menu">Menu</a>
+        <Link to="/#menu">Menu</Link>
       </li>
       <li>
-        <a href="#reservations">Reservations</a>
+        <Link to="/booking">Reservations</Link>
       </li>
       <li>
-        <a href="#order-online">Order Online</a>
+        <Link to="/#order-online">Order Online</Link>
       </li>
       <li>
-        <a href="#login">Login</a>
+        <Link to="/#login">Login</Link>
       </li>
     </ul>
   );

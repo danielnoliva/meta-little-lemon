@@ -1,8 +1,9 @@
 import React, { useReducer } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import HomePage from "./HomePage";
 import BookingPage from "./BookingPage";
 import { fetchData, submitReservation } from "../api";
+import ConfirmedBookingPage from "./ConfirmedBookingPage";
 
 export function initializeTimes(initialDate = new Date()) {
   const date = initialDate instanceof Date ? initialDate : new Date(initialDate);
@@ -18,6 +19,7 @@ export function updateTimes(state, action) {
 }
 
 export default function Main() {
+  const navigate = useNavigate();
   const [availableTimes, dispatchOnDateChange] = useReducer(
     updateTimes,
     new Date(),
@@ -28,6 +30,7 @@ export default function Main() {
     const didSucceed = await submitReservation(formData);
     if (didSucceed) {
       console.log("Reservation confirmed:", formData);
+      navigate("/confirmed");
     } else {
       console.warn("Reservation failed:", formData);
     }
@@ -48,6 +51,7 @@ export default function Main() {
             />
           }
         />
+        <Route path="/confirmed" element={<ConfirmedBookingPage />} />
         <Route path="*" element={<HomePage />} />
       </Routes>
     </main>

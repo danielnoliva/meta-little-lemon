@@ -400,6 +400,148 @@ button {
   gap: 0.5rem;
 }
 
+.booking {
+  background: var(--color-muted);
+  padding: 5rem 1.5rem 6rem;
+}
+
+.booking__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+  display: grid;
+  gap: 1.75rem;
+}
+
+.booking__inner h1 {
+  margin: 0;
+  font-family: "Markazi Text", "Georgia", serif;
+  font-size: clamp(2.4rem, 5vw, 3.1rem);
+  color: var(--color-primary);
+}
+
+.booking__inner > p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-mid);
+}
+
+.booking-form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.booking-form h2 {
+  margin: 0 0 0.5rem;
+  font-family: "Markazi Text", "Georgia", serif;
+  font-size: 2rem;
+  color: var(--color-primary);
+}
+
+.booking-form label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.booking-form input,
+.booking-form select {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--color-paper);
+  font-size: 1rem;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.booking-form input:focus-visible,
+.booking-form select:focus-visible {
+  outline: none;
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(244, 206, 20, 0.35);
+}
+
+.primary-btn {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.75rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 1rem;
+  color: #1a1a1a;
+  background: var(--color-secondary);
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.primary-btn:hover,
+.primary-btn:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+.confirmation {
+  background: linear-gradient(
+    135deg,
+    rgba(244, 206, 20, 0.12),
+    rgba(73, 94, 87, 0.15)
+  );
+  padding: 6rem 1.5rem;
+}
+
+.confirmation__inner {
+  max-width: 680px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 3.5rem;
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.14);
+  text-align: center;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.confirmation__inner h1 {
+  margin: 0;
+  font-family: "Markazi Text", "Georgia", serif;
+  font-size: clamp(2.6rem, 5vw, 3.4rem);
+  color: var(--color-primary);
+}
+
+.confirmation__inner p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-mid);
+}
+
+@media (max-width: 640px) {
+  .booking__inner,
+  .confirmation__inner {
+    padding: 2.25rem 1.75rem;
+  }
+
+  .booking-form {
+    gap: 1rem;
+  }
+
+  .primary-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 .App-footer .nav-links {
   flex-direction: column;
   align-items: flex-start;

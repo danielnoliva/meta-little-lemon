@@ -88,3 +88,15 @@ test("enables submission when form values are valid", async () => {
   await userEvent.click(submitButton);
   await waitFor(() => expect(onSubmit).toHaveBeenCalledTimes(1));
 });
+
+test("disables submission when no times are available", () => {
+  renderBookingForm({ availableTimes: [] });
+
+  const timeSelect = screen.getByLabelText(/choose time/i);
+  expect(timeSelect).toBeDisabled();
+
+  const submitButton = screen.getByRole("button", {
+    name: /submit reservation/i,
+  });
+  expect(submitButton).toBeDisabled();
+});

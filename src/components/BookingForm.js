@@ -6,10 +6,7 @@ export default function BookingForm({
   dispatch = () => {},
   onSubmit = async () => true,
 }) {
-  const today = useMemo(
-    () => new Date().toISOString().split("T")[0],
-    []
-  );
+  const today = useMemo(() => new Date().toISOString().split("T")[0], []);
 
   useEffect(() => {
     dispatch({ type: "date", date: today });
@@ -83,13 +80,13 @@ export default function BookingForm({
   useEffect(() => {
     if (!availableTimes.length) {
       if (values.time !== "") {
-        setFieldValue("time", "", false);
+        setFieldValue("time", "", true);
       }
       return;
     }
 
     if (!availableTimes.includes(values.time)) {
-      setFieldValue("time", availableTimes[0], false);
+      setFieldValue("time", availableTimes[0], true);
     }
   }, [availableTimes, setFieldValue, values.time]);
 
@@ -215,6 +212,7 @@ export default function BookingForm({
           <option value="">Select an occasion</option>
           <option value="birthday">Birthday</option>
           <option value="anniversary">Anniversary</option>
+          <option value="other">Other</option>
         </select>
         {occasionHasError && (
           <span
@@ -234,7 +232,8 @@ export default function BookingForm({
           !isValid ||
           isSubmitting ||
           Boolean(errors.date) ||
-          Boolean(errors.time)
+          Boolean(errors.time) ||
+          !availableTimes.length
         }
       >
         Submit Reservation

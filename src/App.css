@@ -526,6 +526,16 @@ button {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
 }
 
+.primary-btn:disabled,
+.primary-btn[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.45;
+  box-shadow: none;
+  transform: none;
+  background: #cfcfcf;
+  color: #646464;
+}
+
 .confirmation {
   background: linear-gradient(
     135deg,
@@ -533,6 +543,10 @@ button {
     rgba(73, 94, 87, 0.15)
   );
   padding: 6rem 1.5rem;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .confirmation__inner {

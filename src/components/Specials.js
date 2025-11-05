@@ -42,7 +42,7 @@ export default function Specials() {
             <img src={special.image} alt={special.title} />
             <div className="special-card__body">
               <div className="special-card__top">
-                <span>{special.title}</span>
+                <h3 className="special-card__title">{special.title}</h3>
                 <span className="special-card__price">{special.price}</span>
               </div>
               <p>{special.description}</p>

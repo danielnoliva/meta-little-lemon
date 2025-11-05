@@ -1,30 +1,63 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Nav({ className = "" }) {
+  const location = useLocation();
   const listClassName = className
     ? `nav-links ${className}`.trim()
     : "nav-links";
+  const navItems = [
+    {
+      to: "/",
+      label: "Home",
+      getAriaCurrent: ({ pathname, hash }) =>
+        pathname === "/" && !hash ? "page" : undefined,
+    },
+    {
+      to: "/#about",
+      label: "About",
+      getAriaCurrent: ({ pathname, hash }) =>
+        pathname === "/" && hash === "#about" ? "location" : undefined,
+    },
+    {
+      to: "/#menu",
+      label: "Menu",
+      getAriaCurrent: ({ pathname, hash }) =>
+        pathname === "/" && hash === "#menu" ? "location" : undefined,
+    },
+    {
+      to: "/booking",
+      label: "Reservations",
+      getAriaCurrent: ({ pathname }) =>
+        pathname === "/booking" ? "page" : undefined,
+    },
+    {
+      to: "/#order-online",
+      label: "Order Online",
+      getAriaCurrent: ({ pathname, hash }) =>
+        pathname === "/" && hash === "#order-online"
+          ? "location"
+          : undefined,
+    },
+    {
+      to: "/#login",
+      label: "Login",
+      getAriaCurrent: ({ pathname, hash }) =>
+        pathname === "/" && hash === "#login" ? "location" : undefined,
+    },
+  ];
 
   return (
     <ul className={listClassName}>
-      <li>
-        <Link to="/">Home</Link>
-      </li>
-      <li>
-        <Link to="/#about">About</Link>
-      </li>
-      <li>
-        <Link to="/#menu">Menu</Link>
-      </li>
-      <li>
-        <Link to="/booking">Reservations</Link>
-      </li>
-      <li>
-        <Link to="/#order-online">Order Online</Link>
-      </li>
-      <li>
-        <Link to="/#login">Login</Link>
-      </li>
+      {navItems.map((item) => {
+        const ariaCurrent = item.getAriaCurrent(location);
+        return (
+          <li key={item.to}>
+            <Link to={item.to} aria-current={ariaCurrent}>
+              {item.label}
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
 }

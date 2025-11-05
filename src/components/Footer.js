@@ -8,17 +8,17 @@ export default function Footer() {
       <div className="App-footer__inner">
         <div className="App-footer__brand">
           <img src={logo} className="App-logo" alt="Little Lemon Logo" />
-          <p>Little Lemon</p>
+          <h2>Little Lemon</h2>
           <p>Chicago</p>
         </div>
 
-        <section>
-          <p>Doormat Navigation</p>
+        <nav aria-label="Footer">
+          <h2>Doormat Navigation</h2>
           <Nav />
-        </section>
+        </nav>
 
         <section>
-          <p>Contact</p>
+          <h2>Contact</h2>
           <ul>
             <li>1234 Lemon St.</li>
             <li>Chicago, IL 60601</li>
@@ -28,7 +28,7 @@ export default function Footer() {
         </section>
 
         <section>
-          <p>Social Media</p>
+          <h2>Social Media</h2>
           <ul>
             <li>Facebook</li>
             <li>Instagram</li>
